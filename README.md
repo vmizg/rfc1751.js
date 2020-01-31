@@ -1,5 +1,9 @@
 # RFC1751.js
 
+[![npm](https://img.shields.io/npm/v/rfc1751.js?style=flat-square)](https://www.npmjs.com/package/rfc1751.js)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/rfc1751.js?style=flat-square)](https://www.npmjs.com/package/rfc1751.js)
+![David](https://img.shields.io/david/mizvyt/rfc1751.js?style=flat-square)
+
 An implementation of RFC1751 convention in TypeScript / JavaScript.
 
 Converts between 128-bit strings and a human-readable
@@ -26,12 +30,13 @@ npm install rfc1751.js
 ``` javascript
 import { btoe, etob } from 'rfc1751.js';
 
-// Convert bytes to words
 let bytearray = new Uint8Array([4, 8, 15, 16, 23, 42, 0, 0]);
-let words = btoe(bytearray);
 
-// Convert words to bytes
+let words = btoe(bytearray);
+// "AT TIC NIBS ODD JACK ABE"
+
 let decoded = etob(words);
+// Uint8Array([4, 8, 15, 16, 23, 42, 0, 0])
 ```
 
 ## License
