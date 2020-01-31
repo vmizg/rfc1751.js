@@ -1,0 +1,28 @@
+{
+  "name": "rfc1751.js",
+  "version": "1.0.0",
+  "description": "An implementation of RFC1751 convention in TypeScript / JavaScript",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizvyt/rfc1751.js.git"
+  },
+  "author": "Vytautas Mizgiris <vmizgiris@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mizvyt/rfc1751.js/issues"
+  },
+  "homepage": "https://github.com/mizvyt/rfc1751.js#readme",
+  "devDependencies": {
+    "tslint": "^6.0.0",
+    "typescript": "^2.9.2"
+  }
+}

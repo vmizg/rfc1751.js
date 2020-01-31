@@ -1,0 +1,8 @@
+{
+  "extends": ["tslint:recommended"],
+  "rules": {
+    "no-bitwise": false,
+    "prefer-for-of": false,
+    "prefer-const": true
+  }
+}
