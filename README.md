@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/rfc1751.js?style=flat-square)](https://www.npmjs.com/package/rfc1751.js)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/rfc1751.js?style=flat-square)](https://www.npmjs.com/package/rfc1751.js)
+[![npm](https://img.shields.io/npm/dw/rfc1751.js?style=flat-square)](https://www.npmjs.com/package/rfc1751.js)
 ![David](https://img.shields.io/david/mizvyt/rfc1751.js?style=flat-square)
 
 An implementation of RFC1751 convention in TypeScript / JavaScript.
