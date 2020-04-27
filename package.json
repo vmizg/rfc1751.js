@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json && eslint 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,12 @@
   },
   "homepage": "https://github.com/mizvyt/rfc1751.js#readme",
   "devDependencies": {
-    "tslint": "^6.0.0",
-    "typescript": "^2.9.2"
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jsdoc": "^24.0.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.8.3"
   }
 }
