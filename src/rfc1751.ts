@@ -40,6 +40,8 @@
     SOFTWARE.
 */
 
+/* Workflow test */
+
 import { WORDLIST } from './wordlist';
 
 const BINARY = [
