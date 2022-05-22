@@ -1,6 +1,7 @@
 # Built files
 /dist
 /lib
+coverage
 
 # Dependencies
 node_modules
