@@ -1,44 +1,9 @@
-/*
-    Implementation of RFC1751 standard in TypeScript / JavaScript.
-
-    Converts between 128-bit strings and a human-readable
-    sequence of words, as defined in RFC1751: "A Convention for
-    Human-Readable 128-bit Keys", by Daniel L. McDonald:
-    https://tools.ietf.org/html/rfc1751
-
-    Source implementation:
-
-    rfc1751.js @ ms-brainwallet.github.io (public domain)
-        https://github.com/ms-brainwallet/ms-brainwallet.github.io/blob/master/js/rfc1751.js
-
-    rfc1751.py @ Python Cryptography Toolkit
-        Written by Andrew M. Kuchling and others (public domain)
-        https://github.com/dlitz/pycrypto/blob/master/lib/Crypto/Util/RFC1751.py
-
-    -----------------------------------------------------------------------------------------
-
-    MIT License
-
-    Copyright (c) 2020 Vytautas Mizgiris and others
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
-*/
+/**
+ * Converts between 128-bit strings and a human-readable
+ * sequence of words, as defined in RFC1751: "A Convention for
+ * Human-Readable 128-bit Keys", by Daniel L. McDonald:
+ * https://tools.ietf.org/html/rfc1751
+ */
 
 import { WORDLIST } from './wordlist';
 
@@ -168,10 +133,9 @@ export function etob(str: string): Uint8Array {
             }
             bits = bits + 11;
         }
-        const subkey = ch.slice();
 
         // Check parity
-        const skbin = key2bin(subkey);
+        const skbin = key2bin(ch);
         let p = 0;
         for (let j = 0; j < 64; j += 2) {
             p = p + extract(skbin, j, 2);
@@ -183,15 +147,12 @@ export function etob(str: string): Uint8Array {
         }
 
         // Perform concatenation
-        if (key) {
-            const newkeyLen = key.byteLength + subkey.byteLength - 1;
-            const newkey = new Uint8Array(newkeyLen);
-            newkey.set(key);
-            newkey.set(subkey.slice(0, 8), key.byteLength);
-            key = newkey;
-        } else {
-            key = subkey.slice(0, 8);
-        }
+        const newkeyLen = key.byteLength + ch.byteLength - 1;
+        const newkey = new Uint8Array(newkeyLen);
+        newkey.set(key);
+        newkey.set(ch.slice(0, 8), key.byteLength);
+        key = newkey;
     }
+
     return key;
 }
